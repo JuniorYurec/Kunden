@@ -1,0 +1,90 @@
+{
+  "_version": "1.8.0",
+  "sap.app": {
+    "id": "de.nak.gbook",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "hotelService": {
+        "uri": "https://r41z.ucc.ovgu.de/sap/opu/odata/sap/ZVG_16D_71_GBOOK_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_belize"
+    ]
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "de.nak.gbook.view.App",
+      "type": "XML"
+    },
+    "dependencies": {
+      "minUI5Version": "1.30",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "de.nak.gbook.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "main",
+          "target": "main"
+        },
+        {
+          "pattern": "detail",
+          "name": "detail",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "main": {
+          "viewName": "Main"
+        },
+        "detail": {
+          "viewName": "Detail"
+        }
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "de.nak.gbook.i18n.i18n"
+        }
+      },
+      "hotel": {
+        "dataSource": "hotelService",
+        "settings": {
+          "useBatch": false,
+          "defaultBindingMode": "TwoWay"
+        }
+      }
+    }
+  }
+}

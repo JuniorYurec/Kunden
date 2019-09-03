@@ -1,0 +1,10 @@
+{
+    "sapProtocol": "https",
+    "sapHost": "r41z.ucc.ovgu.de",
+    "sapBspContainer": "ZVG_16D_71_UB1",
+    "sapPackage": "ZVG_16D_71_6SEM",
+    "sapTransport": "R41K909892",
+	"sapAppName" : "Saufi Saufi",
+	"sapUser" : "DEVVG-71",
+	"sapPassword" : "Aviatar1!"
+}

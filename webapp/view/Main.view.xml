@@ -1,0 +1,16 @@
+<mvc:view
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns="sap.m"
+        controllerName="de.nak.gbook.controller.Main">
+    <Page title="{i18n>mainPageTitle}" class="sapUiContentPadding">
+        <content>
+            <List headerText="{i18n>listHeader}"
+                  items="{ path: 'hotel>/GuestBookEntrySet'}"
+                  growing="true"
+                  growingThreshold="50"
+                  enableBusyIndicator="true">
+                <StandardListItem title="{hotel>Name}" description="{hotel>Text}"/>
+            </List>
+        </content>
+    </Page>
+</mvc:view>

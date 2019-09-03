@@ -1,0 +1,10 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          controllerName="de.nak.gbook.controller.Detail"
+          displayBlock="true">
+    <Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onNavButtonPress">
+        <content>
+            <Text text="{i18n>detailPageText}"/>
+        </content>
+    </Page>
+</mvc:View>
