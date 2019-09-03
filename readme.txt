@@ -12,3 +12,6 @@ aus.
 	grunt deploy
 
 aus.
+
+test
+
