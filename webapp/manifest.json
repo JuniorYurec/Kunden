@@ -60,6 +60,11 @@
           "pattern": "detail/{entry}",
           "name": "detail",
           "target": "detail"
+        },
+        {
+          "pattern": "add",
+          "name": "add",
+          "target": "add"
         }
       ],
       "targets": {
@@ -67,6 +72,9 @@
           "viewName": "Main"
         },
         "detail": {
+          "viewName": "Detail"
+        },
+        "add": {
           "viewName": "Detail"
         }
       }

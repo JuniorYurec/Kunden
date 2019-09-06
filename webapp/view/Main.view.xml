@@ -9,11 +9,21 @@
                   growing="true"
                   growingThreshold="50"
                   enableBusyIndicator="true">
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>listHeader}" level="H2"/>
+                        <ToolbarSpacer/>
+                        <Button icon="sap-icon://add" press="onPressAdd"/>
+                    </Toolbar>
+                </headerToolbar>
+
                 <StandardListItem title="{hotel>Name}"
                                   description="{hotel>Text}"
                                   press="onPressListItem"
                                   type="Navigation"
                 />
+
             </List>
         </content>
     </Page>

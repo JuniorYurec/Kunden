@@ -9,11 +9,22 @@
             <f:SimpleForm id="formEdit" editable="true" layout="ResponsiveGridLayout">
                 <f:content>
                     <Label text="Name" labelFor="inputName"/>
-                    <Input id="inputName" value="{hotel>Name}" enabled="false"/>
+                    <Input id="inputName" value="{hotel>Name}" enabled="{viewModel>/enabled}"/>
                     <Label text="Nachricht" labelFor="inputText"/>
-                    <TextArea id="inputText" value="{hotel>Text}" enabled="false"/>
+                    <TextArea id="inputText" value="{hotel>Text}" enabled="{viewModel>/enabled}"/>
                 </f:content>
             </f:SimpleForm>
         </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button type="Accept" text="Speichern"
+                        press="onPressSave" icon="sap-icon://save"
+                        enabled="{viewModel>/saveActive}"/>
+                <Button type="Reject" text="Abbrechen" press="onPressCancel"/>
+            </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>
+

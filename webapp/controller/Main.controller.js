@@ -6,6 +6,10 @@ sap.ui.define([
 
     return Controller.extend("de.nak.gbook.controller.Main", {
 
+        onPressAdd : function () {
+            sap.ui.core.UIComponent.getRouterFor(this).navTo("add");
+        },
+
         onPressListItem : function (oEvent) {
             var oSelectedItem;
             oSelectedItem = oEvent.getSource();
