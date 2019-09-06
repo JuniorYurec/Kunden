@@ -1,10 +1,19 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="de.nak.gbook.controller.Detail"
+          xmlns:mvc="sap.ui.core.mvc"
+          displayBlock="true"
           xmlns="sap.m"
-          controllerName="de.nak.gbook.controller.Detail"
-          displayBlock="true">
-    <Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onNavButtonPress">
+          xmlns:f="sap.ui.layout.form">
+    <Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onNavButtonPress"
+          class="sapUiContentPadding">
         <content>
-            <Text text="{i18n>detailPageText}"/>
+            <f:SimpleForm id="formEdit" editable="true" layout="ResponsiveGridLayout">
+                <f:content>
+                    <Label text="Name" labelFor="inputName"/>
+                    <Input id="inputName" value="{hotel>Name}" enabled="false"/>
+                    <Label text="Nachricht" labelFor="inputText"/>
+                    <TextArea id="inputText" value="{hotel>Text}" enabled="false"/>
+                </f:content>
+            </f:SimpleForm>
         </content>
     </Page>
 </mvc:View>

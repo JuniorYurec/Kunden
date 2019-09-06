@@ -9,7 +9,11 @@
                   growing="true"
                   growingThreshold="50"
                   enableBusyIndicator="true">
-                <StandardListItem title="{hotel>Name}" description="{hotel>Text}"/>
+                <StandardListItem title="{hotel>Name}"
+                                  description="{hotel>Text}"
+                                  press="onPressListItem"
+                                  type="Navigation"
+                />
             </List>
         </content>
     </Page>

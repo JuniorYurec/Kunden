@@ -6,9 +6,12 @@ sap.ui.define([
 
     return Controller.extend("de.nak.gbook.controller.Main", {
 
-        onPressNavigate: function () {
-            var oRouter = UIComponent.getRouterFor(this); // Instead of full qualified name, I have imported the component
-            oRouter.navTo("detail");
+        onPressListItem : function (oEvent) {
+            var oSelectedItem;
+            oSelectedItem = oEvent.getSource();
+            console.log(oSelectedItem);
+            sap.ui.core.UIComponent.getRouterFor(this).navTo("detail",
+                {entry: oSelectedItem.getBindingContext("hotel").getPath().substr(1)});
         }
     });
 });
