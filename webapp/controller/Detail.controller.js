@@ -64,7 +64,6 @@ sap.ui.define([
                 // Eintrag vorhanden (Update)
                 oModel.update(sPath, oEntity, oParameters);
             } else {
-
                 // Anlegen über eigene Entität (Create)
                 var oCreate = {
                     Name: oEntity.Name,
