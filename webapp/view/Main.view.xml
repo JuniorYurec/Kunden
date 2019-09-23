@@ -9,8 +9,7 @@
             <Table
                     id="CustomerTable"
                     items='customer>/CustomerEntrySet'
-                    growing="true"
-                    growingThreshold="100">
+                    inset="false">
                 <headerToolbar>
 
                     <OverflowToolbar>

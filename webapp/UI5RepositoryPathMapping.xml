@@ -15,9 +15,6 @@
    internal_rep      = ""
    internal_rep_path = "" />
 
-
-
-
   <MappingEntry
    path              = "controller/App.controller.js"
    is_folder         = ""
@@ -72,9 +69,6 @@
    is_folder         = "X"
    internal_rep      = ""
    internal_rep_path = "" />
-
-
-
 
   <MappingEntry
    path              = "view/App.view.xml"

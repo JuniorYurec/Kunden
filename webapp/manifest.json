@@ -11,7 +11,7 @@
     },
     "dataSources": {
       "hotelService": {
-        "uri": "http://r41z.ucc.ovgu.de/sap/opu/odata/sap/ZVG_16D_71_HAUSARBEIT_SRV_01/",
+        "uri": "https://r41z.ucc.ovgu.de/sap/opu/odata/sap/ZVG_16D_71_HAUSARBEIT_SRV_01/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0"
