@@ -14,6 +14,7 @@
                 <headerToolbar>
 
                     <OverflowToolbar>
+
                         <content>
                             <ToolbarSpacer/>
                             <SearchField
