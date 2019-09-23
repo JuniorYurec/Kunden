@@ -3,5 +3,5 @@ sap.ui.define([
 ], function (Controller) {
     "use strict";
 
-    return Controller.extend("Navigation.controller.App", {});
+    return Controller.extend("de.nak.hausarbeit.controller.App", {});
 });

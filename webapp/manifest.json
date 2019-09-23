@@ -1,7 +1,7 @@
 {
   "_version": "1.8.0",
   "sap.app": {
-    "id": "de.nak.gbook",
+    "id": "de.nak.hausarbeit",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "title": "{{appTitle}}",
@@ -11,7 +11,7 @@
     },
     "dataSources": {
       "hotelService": {
-        "uri": "https://r41z.ucc.ovgu.de/sap/opu/odata/sap/ZVG_16D_71_GBOOK_SRV/",
+        "uri": "http://r41z.ucc.ovgu.de/sap/opu/odata/sap/ZVG_16D_71_HAUSARBEIT_SRV_01/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0"
@@ -31,21 +31,19 @@
     ]
   },
   "sap.ui5": {
-    "rootView": {
-      "viewName": "de.nak.gbook.view.App",
-      "type": "XML"
-    },
-    "dependencies": {
-      "minUI5Version": "1.30",
-      "libs": {
-        "sap.m": {}
-      }
+  "_version": "1.1.0",
+  "rootView": "de.nak.hausarbeit.view.App",
+  "dependencies": {
+    "minUI5Version": "1.30",
+    "libs": {
+      "sap.m": {}
+    }
     },
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
-        "viewPath": "de.nak.gbook.view",
+        "viewPath": "de.nak.hausarbeit.view",
         "controlId": "app",
         "controlAggregation": "pages",
         "async": true
@@ -83,14 +81,15 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "de.nak.gbook.i18n.i18n"
+          "bundleName": "de.nak.hausarbeit.i18n.i18n"
         }
       },
-      "hotel": {
+      "customer": {
         "dataSource": "hotelService",
         "settings": {
           "useBatch": false,
-          "defaultBindingMode": "TwoWay"
+          "defaultBindingMode": "TwoWay",
+          "defaultUpdateMethod": "PUT"
         }
       }
     }

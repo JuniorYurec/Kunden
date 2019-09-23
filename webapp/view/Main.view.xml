@@ -1,30 +1,67 @@
+
 <mvc:view
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"
-        controllerName="de.nak.gbook.controller.Main">
-    <Page title="{i18n>mainPageTitle}" class="sapUiContentPadding">
+        xmlns:fb="sap.ui.comp.filterbar"
+        controllerName="de.nak.hausarbeit.controller.Main">
+    <Page title="Kunden" class="sapUiContentPadding">
         <content>
-            <List headerText="{i18n>listHeader}"
-                  items="{ path: 'hotel>/GuestBookEntrySet'}"
-                  growing="true"
-                  growingThreshold="50"
-                  enableBusyIndicator="true">
-
+            <Table
+                    id="CustomerTable"
+                    items='customer>/CustomerEntrySet'
+                    growing="true"
+                    growingThreshold="100">
                 <headerToolbar>
-                    <Toolbar>
-                        <Title text="{i18n>listHeader}" level="H2"/>
-                        <ToolbarSpacer/>
-                        <Button icon="sap-icon://add" press="onPressAdd"/>
-                    </Toolbar>
+
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer/>
+                            <SearchField
+                                    id="searchFieldName"
+                                    width="20%"
+                                    placeholder="Name"
+                                    search="onSearchName"
+                                    selectOnFocus="false"/>
+                            <Button
+                                    id="sortButton"
+                                    press="onSort"
+                                    tooltip="Sort"
+                                    icon="sap-icon://sort"/>
+
+                            <Button id="addButton"
+                                    icon="sap-icon://add"
+                                    type="Transparent"
+                                    press="onAdd"/>
+
+
+                        </content>
+                    </OverflowToolbar>
                 </headerToolbar>
-
-                <StandardListItem title="{hotel>Name}"
-                                  description="{hotel>Text}"
-                                  press="onPressListItem"
-                                  type="Navigation"
-                />
-
-            </List>
+                <columns>
+                    <Column width="12em">
+                        <Text text="Kundennummer / Name" />
+                    </Column>
+                    <Column width="5em">
+                        <Text text="PLZ" />
+                    </Column>
+                    <Column width="8em">
+                        <Text text="Wohnort" />
+                    </Column>
+                    <Column width="2em">
+                        <Text text="Land" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Navigation" press="onListItemPress" >
+                        <cells>
+                            <ObjectIdentifier title="{customer>Kunnr}" text="{customer>Name1}" />
+                            <ObjectNumber number="{customer>Pstlz}"/>
+                            <ObjectAttribute text="{customer>Ort01}" />
+                            <ObjectAttribute text="{customer>Land1}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
     </Page>
 </mvc:view>

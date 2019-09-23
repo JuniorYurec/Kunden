@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/UIComponent"
 ], function (UIComponent) {
     "use strict";
-    return UIComponent.extend("de.nak.gbook.Component", {
+    return UIComponent.extend("de.nak.hausarbeit.Component", {
         metadata: {
             manifest: "json"
         },

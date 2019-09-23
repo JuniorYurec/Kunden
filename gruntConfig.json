@@ -1,10 +1,10 @@
 {
     "sapProtocol": "https",
     "sapHost": "r41z.ucc.ovgu.de",
-    "sapBspContainer": "ZVG_16D_71_UB1",
-    "sapPackage": "ZVG_16D_71_6SEM",
+    "sapBspContainer": "ZVG_16D_71_Ha",
+    "sapPackage": "ZVG_16D_71_HAUSARBEIT",
     "sapTransport": "R41K909892",
-	"sapAppName" : "Saufi Saufi",
+	"sapAppName" : "Hausarbeit",
 	"sapUser" : "DEVVG-71",
 	"sapPassword" : "Aviatar1!"
 }
