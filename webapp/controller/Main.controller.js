@@ -34,6 +34,35 @@ sap.ui.define([
                     {entry: oSelectedItem.getBindingContext("customer").getPath().substr(1)});
 
 
+            },
+
+
+        onSearchName : function (oEvent) {
+            var aFilter = [];
+            var sQuery = oEvent.getParameter("query");
+
+            if(sQuery){
+                aFilter.push(new Filter("Name1",
+                    FilterOperator.Contains, sQuery));
             }
+
+            this.byId("customerTable").getBinding("items").filter(aFilter);
+        },
+        onSort: function () {
+            var oView = this.getView(),
+                aStates = [undefined, "asc", "desc"],
+
+                iOrder = oView.getModel("appView").getProperty("/order");
+
+            iOrder = (iOrder + 1) % aStates.length;
+            var sOrder = aStates[iOrder];
+
+            oView.getModel("appView").setProperty("/order", iOrder);
+
+            oView.byId("customerTable").getBinding("items").sort(sOrder && new Sorter("Kunnr", sOrder === "desc"));
+
+        }
+
+
     });
 });

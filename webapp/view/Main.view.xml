@@ -23,9 +23,10 @@
                             <SearchField
                                     id="searchFieldName"
                                     width="20%"
-                                    placeholder="Name"
+                                    placeholder="Name1"
                                     search="onSearchName"
                                     selectOnFocus="false"/>
+
                             <Button
                                     id="sortButton"
                                     press="onSort"
@@ -59,7 +60,7 @@
 
                             <ColumnListItem type="Navigation" press="onPressListItem" >
                                 <cells>
-                                    <ObjectIdentifier title="{customer>Kunnr}" text="{customer>Name1}" />
+                                     <ObjectIdentifier title="{customer>Kunnr}" text="{customer>Name1}" />
                                     <Text text="{customer>Pstlz}"/>
                                     <Text text="{customer>Ort01}" />
                                     <Text text="{customer>Land1}" />
