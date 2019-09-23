@@ -19,16 +19,21 @@ sap.ui.define([
             this.getView().setModel(oModel, "appView");
         },
 
-        onPressAdd : function () {
+        onAdd : function () {
             sap.ui.core.UIComponent.getRouterFor(this).navTo("add");
         },
 
-        onListItemPress : function (oEvent) {
-            var oSelectedItem;
-            oSelectedItem = oEvent.getSource();
-            console.log(oSelectedItem);
-            sap.ui.core.UIComponent.getRouterFor(this).navTo("detail",
-                {entry: oSelectedItem.getBindingContext("customer").getPath().substr(1)});
-        }
+
+            onPressListItem : function (oEvent) {
+
+                var oSelectedItem;
+
+                oSelectedItem = oEvent.getSource();
+                console.log(oSelectedItem);
+                sap.ui.core.UIComponent.getRouterFor(this).navTo("detail",
+                    {entry: oSelectedItem.getBindingContext("customer").getPath().substr(1)});
+
+
+            }
     });
 });

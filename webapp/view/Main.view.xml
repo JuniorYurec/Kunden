@@ -2,14 +2,18 @@
 <mvc:view
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"
-        xmlns:fb="sap.ui.comp.filterbar"
         controllerName="de.nak.hausarbeit.controller.Main">
     <Page title="Kunden" class="sapUiContentPadding">
         <content>
             <Table
                     id="CustomerTable"
-                    items='customer>/CustomerEntrySet'
-                    inset="false">
+                    items="{
+                       path  : 'customer>/CustomerEntrySet'
+                        }"
+                    growing="true"
+                    growingThreshold="50"
+                    inset="false"
+                    enableBusyIndicator="true">
                 <headerToolbar>
 
                     <OverflowToolbar>
@@ -38,28 +42,30 @@
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>
-                    <Column width="12em">
+                    <Column >
                         <Text text="Kundennummer / Name" />
                     </Column>
-                    <Column width="5em">
+                    <Column >
                         <Text text="PLZ" />
                     </Column>
-                    <Column width="8em">
+                    <Column >
                         <Text text="Wohnort" />
                     </Column>
-                    <Column width="2em">
+                    <Column >
                         <Text text="Land" />
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem type="Navigation" press="onListItemPress" >
-                        <cells>
-                            <ObjectIdentifier title="{customer>Kunnr}" text="{customer>Name1}" />
-                            <ObjectNumber number="{customer>Pstlz}"/>
-                            <ObjectAttribute text="{customer>Ort01}" />
-                            <ObjectAttribute text="{customer>Land1}" />
-                        </cells>
-                    </ColumnListItem>
+
+                            <ColumnListItem type="Navigation" press="onPressListItem" >
+                                <cells>
+                                    <ObjectIdentifier title="{customer>Kunnr}" text="{customer>Name1}" />
+                                    <Text text="{customer>Pstlz}"/>
+                                    <Text text="{customer>Ort01}" />
+                                    <Text text="{customer>Land1}" />
+                                </cells>
+                            </ColumnListItem>
+
                 </items>
             </Table>
         </content>

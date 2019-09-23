@@ -1,30 +1,67 @@
-<mvc:View controllerName="de.nak.gbook.controller.Detail"
-          xmlns:mvc="sap.ui.core.mvc"
-          displayBlock="true"
-          xmlns="sap.m"
-          xmlns:f="sap.ui.layout.form">
-    <Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onNavButtonPress"
-          class="sapUiContentPadding">
+
+
+<mvc:View
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:core="sap.ui.core"
+        xmlns="sap.m"
+        controllerName="de.nak.hausarbeit.controller.Detail"
+        displayBlock="true">
+    <Page title="Kundendaten Detailseinsicht"
+          showNavButton="true"
+          navButtonPress="onNavButtonPress"
+        class="sapUiContentPadding">
         <content>
-            <f:SimpleForm id="formEdit" editable="true" layout="ResponsiveGridLayout">
+
+            <Toolbar>
+                <Title  text="{customer>Name1}, Customer number: {customer>Kunnr}" level="H2"/>
+                <ToolbarSpacer />
+            </Toolbar>
+
+
+            <f:SimpleForm id="formEdit"
+                          editable="true"
+                          layout="ResponsiveGridLayout">
                 <f:content>
+
+                    <Label text="Kundennummer" labelFor="inputKunnr"/>
+                    <Input id="inputKunnr" value="{customer>Kunnr}" enabled="{viewModel>/enabled}" editable="false"/>
+
+                    <Label text="Anrede" labelFor="inputAnrede"/>
+                    <Input id="inputAnrede" value="{customer>Anred}" enabled="{viewModel>/enabled}"/>
+
                     <Label text="Name" labelFor="inputName"/>
-                    <Input id="inputName" value="{hotel>Name}" enabled="{viewModel>/enabled}"/>
-                    <Label text="Nachricht" labelFor="inputText"/>
-                    <TextArea id="inputText" value="{hotel>Text}" enabled="{viewModel>/enabled}"/>
+                    <Input id="inputName" value="{customer>Name1}" enabled="{viewModel>/enabled}"/>
+
+                    <Label text="Name2" labelFor="inputName2"/>
+                    <Input id="inputName2" value="{customer>Name2}" enabled="{viewModel>/enabled}"/>
+
+                    <Label text="Strasse" labelFor="inputStrasse"/>
+                    <Input id="inputStrasse" value="{customer>Stras}" enabled="{viewModel>/enabled}"/>
+
+                    <Label text="Postleitzahl" labelFor="inputPLZ" />
+                    <Input id="inputPLZ" value="{customer>Pstlz}" enabled="{viewModel>/enabled}"/>
+
+                    <Label text="Ort" labelFor="inputOrt"/>
+                    <Input id="inputOrt" value="{customer>Ort01}" enabled="{viewModel>/enabled}"/>
+
+                    <Label text="Land" labelFor="inputLand"/>
+                    <Input id="inputLand" value="{customer>Land1}" enabled="{viewModel>/enabled}"/>
+
+                     <!-- <Label text="Telefon" labelFor="inputTelf"/>
+                      <Input id="inputTelf" value="{customer>telf1}" enabled="{viewModel>/enabled}" />-->
                 </f:content>
             </f:SimpleForm>
         </content>
-
         <footer>
-            <OverflowToolbar>
-                <ToolbarSpacer/>
-                <Button type="Accept" text="Speichern"
-                        press="onPressSave" icon="sap-icon://save"
-                        enabled="{viewModel>/saveActive}"/>
-                <Button type="Reject" text="Abbrechen" press="onPressCancel"/>
-            </OverflowToolbar>
+        <OverflowToolbar>
+         <ToolbarSpacer/>
+              <Button type="Accept" text="Speichern"
+                      press="onPressSave" icon="sap-icon://save"
+                      enabled="{viewModel>/saveActive}"/>
+              <Button type="Reject" text="Abbrechen"
+                      press="onPressCancel"/>
+        </OverflowToolbar>
         </footer>
     </Page>
 </mvc:View>
-

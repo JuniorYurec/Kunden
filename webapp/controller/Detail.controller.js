@@ -2,28 +2,30 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/routing/History",
     "sap/ui/core/UIComponent",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, History, UiComponent, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageBox",
+    "sap/m/MessageToast"
+], function (Controller, History, UiComponent, JSONModel, MessageBox, MessageToast) {
     "use strict";
 
-    return Controller.extend("de.nak.gbook.controller.Detail", {
+    return Controller.extend("de.nak.hausarbeit.controller.Detail", {
 
         onInit: function (oEvent) {
             // Lokales JSON-Model
-            var oViewModel = new JSONModel();
+             var oViewModel = new JSONModel();
             this.getView().setModel(oViewModel, "viewModel");
+             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+             oRouter.getRoute("detail").attachPatternMatched(this._onDetailRouteMatched, this);
+             oRouter.getRoute("add").attachPatternMatched(this._onAddRouteMatched, this);
 
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            oRouter.getRoute("detail").attachPatternMatched(this._onDetailRouteMatched, this);
-            oRouter.getRoute("add").attachPatternMatched(this._onAddRouteMatched,
-                this);
+
         },
 
 
         _onAddRouteMatched: function (oEvent) {
-            var oModel = this.getView().getModel("hotel");
-            var oContext = oModel.createEntry("/GuestBookEntrySet");
-            this.getView().setBindingContext(oContext, "hotel");
+            var oModel = this.getView().getModel("customer");
+            var oContext = oModel.createEntry("/CustomerEntrySet");
+            this.getView().setBindingContext(oContext, "customer");
             var oViewModel = this.getView().getModel("viewModel");
             oViewModel.setProperty('/enabled', true);
             oViewModel.setProperty('/saveActive', true);
@@ -34,20 +36,22 @@ sap.ui.define([
             var oArguments = oEvent.getParameter("arguments");
             console.log(oArguments.entry);
             var oView = this.getView();
-            var oModel = oView.getModel("hotel");
             var oViewModel = oView.getModel("viewModel");
-            oViewModel.setProperty('/enabled', false);
-            oViewModel.setProperty('/saveActive', false);
+            var oModel = oView.getModel("customer");
+            oViewModel.setProperty('/enabled', true);
+            oViewModel.setProperty('/saveActive', true);
             var oContext = oModel.createBindingContext("/" + oArguments.entry);
-            oView.setBindingContext(oContext, "hotel");
+            oView.setBindingContext(oContext, "customer");
         },
 
         onPressSave: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            var oModel = this.getView().getModel("hotel");
-            var oBindingContext = this.getView().getBindingContext("hotel");
+            var oModel = this.getView().getModel("customer");
+            var oBindingContext = this.getView().getBindingContext("customer");
             var sPath = oBindingContext.getPath();
             var oEntity = oBindingContext.getObject();
+
+
             var oParameters = {
                 success: function () {
                     MessageToast.show("Eintrag erfolgreich gespeichert", {closeOnBrowserNavigation: false});
@@ -60,16 +64,37 @@ sap.ui.define([
                 }
             };
 
-            if (oEntity.Id !== undefined) {
-                // Eintrag vorhanden (Update)
-                oModel.update(sPath, oEntity, oParameters);
+            if (oEntity.Kunnr !== undefined) {
+                var oUpdate = {
+                    Kunnr: oEntity.Kunnr,
+                    Anred: oEntity.Anred,
+                    Name1: oEntity.Name1,
+                    Name2: oEntity.Name2,
+                    Stras: oEntity.Stras,
+                    Pstlz: oEntity.Pstlz,
+                    Ort01: oEntity.Ort01,
+                    Land1: oEntity.Land1
+                //    Telf1: oEntity.Telf1
+                };
+                oModel.update(sPath, oUpdate, oParameters);
+                console.log("update!!!");
             } else {
                 // Anlegen über eigene Entität (Create)
                 var oCreate = {
-                    Name: oEntity.Name,
-                    Text: oEntity.Text
+                    Anred: oEntity.Anred,
+                    Name1: oEntity.Name1,
+                    Name2: oEntity.Name2,
+                    Stras: oEntity.Stras,
+                    Pstlz: oEntity.Pstlz,
+                    Ort01: oEntity.Ort01,
+                    Land1: oEntity.Land1
+                //   Telf1: oEntity.Telf1
+
+
                 };
-                oModel.create("/GuestBookEntrySet", oCreate, oParameters);
+                oModel.create("/CustomerEntrySet", oCreate, oParameters);
+                console.log("CREATE!!!");
+
             }
         },
 
