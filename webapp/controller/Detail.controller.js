@@ -17,10 +17,7 @@ sap.ui.define([
              var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
              oRouter.getRoute("detail").attachPatternMatched(this._onDetailRouteMatched, this);
              oRouter.getRoute("add").attachPatternMatched(this._onAddRouteMatched, this);
-
-
         },
-
 
         _onAddRouteMatched: function (oEvent) {
             var oModel = this.getView().getModel("customer");
@@ -30,7 +27,6 @@ sap.ui.define([
             oViewModel.setProperty('/enabled', true);
             oViewModel.setProperty('/saveActive', true);
         },
-
 
         _onDetailRouteMatched: function (oEvent) {
             var oArguments = oEvent.getParameter("arguments");
@@ -51,16 +47,14 @@ sap.ui.define([
             var sPath = oBindingContext.getPath();
             var oEntity = oBindingContext.getObject();
 
-
             var oParameters = {
                 success: function () {
-                    MessageToast.show("Eintrag erfolgreich gespeichert", {closeOnBrowserNavigation: false});
+                    MessageToast.show("Eintrag gespeichert", {closeOnBrowserNavigation: false});
                     oRouter.navTo("main", {}, true);
                 },
                 error: function (oError) {
                     oModel.refresh();
-                    MessageBox.show("Eintrag konnte nicht gespeichert werden",
-                        MessageBox.Icon.ERROR, "Fehler!");
+                    MessageToast.show("Eintrag nicht gespeichert", {closeOnBrowserNavigation: false});
                 }
             };
 
@@ -77,9 +71,7 @@ sap.ui.define([
                 //    Telf1: oEntity.Telf1
                 };
                 oModel.update(sPath, oUpdate, oParameters);
-                console.log("update!!!");
             } else {
-                // Anlegen über eigene Entität (Create)
                 var oCreate = {
                     Anred: oEntity.Anred,
                     Name1: oEntity.Name1,
@@ -90,11 +82,8 @@ sap.ui.define([
                     Land1: oEntity.Land1
                 //   Telf1: oEntity.Telf1
 
-
                 };
                 oModel.create("/CustomerEntrySet", oCreate, oParameters);
-                console.log("CREATE!!!");
-
             }
         },
 
@@ -103,7 +92,6 @@ sap.ui.define([
         },
 
         onNavButtonPress: function () {
-
             // Check if there is a UI5 history
             var history = History.getInstance();
             var previousHash = history.getPreviousHash();

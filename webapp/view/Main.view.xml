@@ -6,7 +6,7 @@
     <Page title="Kunden" class="sapUiContentPadding">
         <content>
             <Table
-                    id="CustomerTable"
+                    id="customerTable"
                     items="{
                        path  : 'customer>/CustomerEntrySet'
                         }"
