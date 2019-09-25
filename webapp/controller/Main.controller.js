@@ -23,19 +23,14 @@ sap.ui.define([
             sap.ui.core.UIComponent.getRouterFor(this).navTo("add");
         },
 
+        onPressListItem : function (oEvent) {
+            var oSelectedItem;
 
-            onPressListItem : function (oEvent) {
-
-                var oSelectedItem;
-
-                oSelectedItem = oEvent.getSource();
-                console.log(oSelectedItem);
-                sap.ui.core.UIComponent.getRouterFor(this).navTo("detail",
-                    {entry: oSelectedItem.getBindingContext("customer").getPath().substr(1)});
-
-
-            },
-
+            oSelectedItem = oEvent.getSource();
+            console.log(oSelectedItem);
+            sap.ui.core.UIComponent.getRouterFor(this).navTo("detail",
+                {entry: oSelectedItem.getBindingContext("customer").getPath().substr(1)});
+        },
 
         onSearchName : function (oEvent) {
             var aFilter = [];
@@ -62,7 +57,5 @@ sap.ui.define([
             oView.byId("customerTable").getBinding("items").sort(sOrder && new Sorter("Kunnr", sOrder === "desc"));
 
         }
-
-
     });
 });

@@ -30,13 +30,13 @@
                     <Label text="Anrede" labelFor="inputAnrede"/>
                     <Input id="inputAnrede" value="{customer>Anred}" enabled="{viewModel>/enabled}"/>
 
-                    <Label text="Name" labelFor="inputName"/>
+                    <Label text="Vorname" labelFor="inputName"/>
                     <Input id="inputName" value="{customer>Name1}" enabled="{viewModel>/enabled}"/>
 
-                    <Label text="Name2" labelFor="inputName2"/>
+                    <Label text="Nachname" labelFor="inputName2"/>
                     <Input id="inputName2" value="{customer>Name2}" enabled="{viewModel>/enabled}"/>
 
-                    <Label text="Strasse" labelFor="inputStrasse"/>
+                    <Label text="Straße" labelFor="inputStrasse"/>
                     <Input id="inputStrasse" value="{customer>Stras}" enabled="{viewModel>/enabled}"/>
 
                     <Label text="Postleitzahl" labelFor="inputPLZ" />
