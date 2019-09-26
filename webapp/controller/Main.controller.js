@@ -1,3 +1,7 @@
+//sources: Slides from the lecture
+//         sapui5.hana.ondemand.com (onSort)
+//Author: Iurii Chernovalov
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
@@ -5,8 +9,7 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/table/library"
-], function (Controller, UIComponent, Sorter, Filter, FilterOperator, JSONModel, library) {
+], function (Controller, UIComponent, Sorter, Filter, FilterOperator, JSONModel) {
     "use strict";
 
     return Controller.extend("de.nak.hausarbeit.controller.Main", {

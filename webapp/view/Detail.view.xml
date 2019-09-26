@@ -1,9 +1,10 @@
-
+<!-- sources: Slides from the lecture
+              sapui5.hana.ondemand.com
+       Author: Niklas von Weihe -->
 
 <mvc:View
         xmlns:mvc="sap.ui.core.mvc"
         xmlns:f="sap.ui.layout.form"
-        xmlns:core="sap.ui.core"
         xmlns="sap.m"
         controllerName="de.nak.hausarbeit.controller.Detail"
         displayBlock="true">

@@ -1,4 +1,6 @@
-
+<!-- sources: Slides from the lecture
+              sapui5.hana.ondemand.com (Table)
+       Author: Iurii Chernovalov -->
 <mvc:view
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"

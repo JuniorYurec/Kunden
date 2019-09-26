@@ -1,3 +1,6 @@
+//source: Slides from the lecture
+//Author: Niklas von Weihe
+
 sap.ui.define([
     "sap/ui/core/UIComponent"
 ], function (UIComponent) {

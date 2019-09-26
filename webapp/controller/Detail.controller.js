@@ -1,3 +1,7 @@
+//sources: Slides from the lecture
+//         sapui5.hana.ondemand.com
+//Author: Niklas von Weihe
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/routing/History",
@@ -86,7 +90,6 @@ sap.ui.define([
                     Pstlz: oEntity.Pstlz,
                     Ort01: oEntity.Ort01,
                     Land1: oEntity.Land1
-                //    Telf1: oEntity.Telf1
                 };
                 oModel.update(sPath, oUpdate, oParameters);
             } else {
@@ -98,7 +101,6 @@ sap.ui.define([
                     Pstlz: oEntity.Pstlz,
                     Ort01: oEntity.Ort01,
                     Land1: oEntity.Land1
-                //   Telf1: oEntity.Telf1
 
                 };
                 oModel.create("/CustomerEntrySet", oCreate, oParameters);

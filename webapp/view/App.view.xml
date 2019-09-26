@@ -1,3 +1,6 @@
+<!-- source: Slides from the lecture
+       Author: Niklas von Weihe -->
+
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
           xmlns="sap.m"
           controllerName="de.nak.hausarbeit.controller.App"
