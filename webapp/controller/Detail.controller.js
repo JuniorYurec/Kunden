@@ -10,15 +10,24 @@ sap.ui.define([
 
     return Controller.extend("de.nak.hausarbeit.controller.Detail", {
 
+        /**
+         * Initalizes the Detail Controller and sets routing.
+         * @param oEvent
+         */
         onInit: function (oEvent) {
-            // Lokales JSON-Model
              var oViewModel = new JSONModel();
-            this.getView().setModel(oViewModel, "viewModel");
+             this.getView().setModel(oViewModel, "viewModel");
              var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
              oRouter.getRoute("detail").attachPatternMatched(this._onDetailRouteMatched, this);
              oRouter.getRoute("add").attachPatternMatched(this._onAddRouteMatched, this);
         },
 
+        /**
+         *
+         * @param oEvent
+         * @private
+         */
         _onAddRouteMatched: function (oEvent) {
             var oModel = this.getView().getModel("customer");
             var oContext = oModel.createEntry("/CustomerEntrySet");
@@ -28,6 +37,11 @@ sap.ui.define([
             oViewModel.setProperty('/saveActive', true);
         },
 
+        /**
+         * Binds the customer object for displaying / editing its data.
+         * @param oEvent
+         * @private
+         */
         _onDetailRouteMatched: function (oEvent) {
             var oArguments = oEvent.getParameter("arguments");
             console.log(oArguments.entry);
@@ -40,6 +54,10 @@ sap.ui.define([
             oView.setBindingContext(oContext, "customer");
         },
 
+        /**
+         * Will be executed when user presses the save button.
+         * Saves all changes to the given customer object and returns a status message.
+         */
         onPressSave: function () {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             var oModel = this.getView().getModel("customer");
@@ -87,10 +105,18 @@ sap.ui.define([
             }
         },
 
+        /**
+         * Gets executed when the user presses the cancel button.
+         * Navigates back to the Main View.
+         */
         onPressCancel: function(){
             this.onNavButtonPress();
         },
 
+        /**
+         * Gets executed when the back button is pressed.
+         * Navigates back to the prvious view.
+         */
         onNavButtonPress: function () {
             // Check if there is a UI5 history
             var history = History.getInstance();

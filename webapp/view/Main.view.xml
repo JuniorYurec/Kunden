@@ -3,10 +3,10 @@
         xmlns:mvc="sap.ui.core.mvc"
         xmlns="sap.m"
         controllerName="de.nak.hausarbeit.controller.Main">
-    <Page title="Kunden" class="sapUiContentPadding">
+
+    <Page title="{i18n>Customers}" class="sapUiContentPadding">
         <content>
-            <Table
-                    id="customerTable"
+            <Table  id="customerTable"
                     items="{
                        path  : 'customer>/CustomerEntrySet'
                         }"
@@ -15,15 +15,13 @@
                     inset="false"
                     enableBusyIndicator="true">
                 <headerToolbar>
-
                     <OverflowToolbar>
-
                         <content>
                             <ToolbarSpacer/>
                             <SearchField
                                     id="searchFieldName"
                                     width="20%"
-                                    placeholder="Name1"
+                                    placeholder="{i18n>name}"
                                     search="onSearchName"
                                     selectOnFocus="false"/>
 
@@ -37,37 +35,36 @@
                                     icon="sap-icon://add"
                                     type="Transparent"
                                     press="onAdd"/>
-
-
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
+
                 <columns>
                     <Column >
-                        <Text text="Kundennummer / Name" />
+                        <Text text="{i18n>customeridname}" />
                     </Column>
                     <Column >
-                        <Text text="PLZ" />
+                        <Text text="{i18n>zip}" />
                     </Column>
                     <Column >
-                        <Text text="Wohnort" />
+                        <Text text="{i18n>city}" />
                     </Column>
                     <Column >
-                        <Text text="Land" />
+                        <Text text="{i18n>country}" />
                     </Column>
                 </columns>
+
                 <items>
-
-                            <ColumnListItem type="Navigation" press="onPressListItem" >
-                                <cells>
-                                     <ObjectIdentifier title="{customer>Kunnr}" text="{customer>Name1}" />
-                                    <Text text="{customer>Pstlz}"/>
-                                    <Text text="{customer>Ort01}" />
-                                    <Text text="{customer>Land1}" />
-                                </cells>
-                            </ColumnListItem>
-
+                    <ColumnListItem type="Navigation" press="onPressListItem" >
+                        <cells>
+                             <ObjectIdentifier title="{customer>Kunnr}" text="{customer>Name1}" />
+                            <Text text="{customer>Pstlz}"/>
+                            <Text text="{customer>Ort01}" />
+                            <Text text="{customer>Land1}" />
+                        </cells>
+                    </ColumnListItem>
                 </items>
+
             </Table>
         </content>
     </Page>
