@@ -1,6 +1,6 @@
-//sources: Slides from the lecture
+//Sources: Lectures, Slides
 //         sapui5.hana.ondemand.com
-//Author: Niklas von Weihe
+//Author: Denis Karpoukhine
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
