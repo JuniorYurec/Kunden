@@ -15,10 +15,13 @@
           class="sapUiContentPadding">
 
         <content>
+            <!--
+            Toolbar removed, because of BAPI Name1/Name2 problem
             <Toolbar>
-                <Title  text="{customer>Name1}, Customer number: {customer>Kunnr}" level="H2"/>
+                <Title  text="{customer>Name1} {customer>Name2} Customer number: {customer>Kunnr}" level="H2"/>
                 <ToolbarSpacer />
             </Toolbar>
+            -->
 
             <f:SimpleForm id="formEdit"
                           editable="true"
